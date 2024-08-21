@@ -25,7 +25,7 @@ function getPokemonNamesFromUrl(url) {
       lines.forEach(line => {
         const nameMatch = line.match(/^(.*?) @/);
         if (nameMatch) {
-          let name = nameMatch[1].replace(/<[^>]+>/g, "");
+          let name = nameMatch[1].replace(/<[^>]+>/g, "").replace(/\s*\([^)]*\)/g, "");
           pokemonNames.push(name);
         }
       });
